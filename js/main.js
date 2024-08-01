@@ -6,31 +6,72 @@ function resta() {
     alert("La diferencia entre estos momentos historicos es de " + (hitoA - hitoB) + " años.")
 }
 
-alert("Bienvenido al libro de historia, aprendera historia brevemente");
+// class historicos{
+//     constructor(id,nombre,inicio,fin,geografia,resumen){
+//         this.id = id;
+//         this.nombre = nombre;
+//         this.inicio = inicio;
+//         this.fin = fin;
+//         this.geografia = geografia;
+//         this.resumen = resumen;
+
+//     }
+// }
+
+const historicos = [
+    {
+        id: 1,
+        nombre: "La Primera Guerra",
+        inicio: 1914,
+        fin: 1918,
+        geografia: "internacional",
+        resumen: " También llamada anteriormente La Gran Guerra (antes de la Segunda Guerra Mundial). Fue un conflicto militar de carácter mundial, aunque centrado en Europa, que empezó el 28 de julio de 1914 y finalizó el 11 de noviembre de 1918, cuando Alemania aceptó las condiciones del armisticio."
+    },
+    {
+        id: 2,
+        nombre: " La Segunda Guerra",
+        inicio: 1939,
+        fin: 1945,
+        geografia: "internacional",
+        resumen: " Fue la mayor contienda bélica en la historia de la humanidad, con más de cien millones de militares movilizados y un estado de guerra total en que los grandes contendientes destinaron toda su capacidad económica, militar y científica al servicio del esfuerzo bélico, borrando la distinción entre recursos civiles y militares."
+    },
+    {
+        id: 3,
+        nombre: " La Revolucion Industrial",
+        inicio: 1750,
+        fin: 1840,
+        geografia: "internacional",
+        resumen: " Es el proceso de transformación económica, social y tecnológica que se inició en el Reino de Gran Bretaña, que se extendió unas décadas después a gran parte de Europa occidental y América Anglosajona."
+    },
+    {
+        id: 4,
+        nombre: " El Mundial 2022",
+        inicio: 2022,
+        fin: 2022,
+        geografia: "internacional",
+        resumen: " Momento historico en el que Lionel Andres Messi hizo feliz a una nacion",
+    },
+]
+
+console.log(historicos);
+const hoy = new Date("July 28, 2024")
+alert("Bienvenido al libro de historia, aprendera historia brevemente.\n\nSu numero de usuario es  " + ( Math.random() * 100 + 10) + " al dia de la fecha " + (hoy.toDateString() ));
 
 let opcion;
 
 do {
 
-    opcion = parseInt(prompt("Ingresa la opcion que desee.\n\n1.Grandes momentos en la historia.\n2.Calcular años de diferencia\n3.Grandes Heroes de la historia\n4.Quiz\n\nPara SALIR, ingrese 0"))
+    opcion = parseInt(prompt("Ingresa la opcion que desee.\n\n1.Recorre los grandes momentos en la historia.\n2.Calcular años de diferencia\n3.Grandes Heroes de la historia\n4.Sugerir eventos\n5.Ver con que eventos contamos.\n6.Ver sobre que heroes tenemos info.\n\nPara SALIR, ingrese 0"))
 
     switch (opcion) {
         case 1:
-            let momentosHistoricos = parseInt(prompt("Selecciona sobre que momento historico queres saber\n\n1.Primer Guerra mundial.\n2.Segunda Guerra Mundial\n3.Revolucion Industrial\n4.Messi gana el mundial<3\n\n5.Volver al menu"));
-            if (momentosHistoricos == 1) {
-                alert("La primera guerra mundial fue un conflicto militar de carácter mundial, que empezó el 28 de julio de 1914 y finalizó el 11 de noviembre de 1918, cuando Alemania aceptó las condiciones del armisticio. La causa que detonó el inicio de la primera guerra fue el asesinato del archiduque Francisco Fernando, heredero de la corona austro-húngara, y de su esposa, la archiduquesa Sofía, en Sarajevo el 28 de junio de 1914")
-            } else if (momentosHistoricos == 2) {
-                alert("Fue el conflicto más grande y destructivo de toda la historia. Alemania invadió Polonia el 1 de septiembre de 1939 y así dio inicio a la Segunda Guerra Mundial. Como respuesta, Gran Bretaña y Francia le declararon la guerra a Alemania.");
-            } else if (momentosHistoricos == 3) {
-                alert("Fue el proceso de cambio de una economía agraria y artesanal a una dominada por la industria y la fabricación de maquinaria. Este proceso se inició en Gran Bretaña y desde allí se extendió a otras partes del mundo.")
-            } else if (momentosHistoricos == 4) {
-                alert("Es el Mundial de Messi. En su quinta y última aventura en el torneo, como el jugador más definitivo, como el motor del reencuentro de Argentina con la cima del mundo, 36 años después del triunfo en México 1986 con Diego Armando Maradona.")
-            } else if (momentosHistoricos == 5) {
-
-            } else {
-                alert("Indica una opcion valida.")
+            for (let i = 0; i < historicos.length; i++) {
+                alert(historicos[i].nombre + " inicio en el año " + historicos[i].inicio + " y finalizo en" + historicos[i].fin + "." + historicos[i].resumen)
             }
-
+            //   let nuevoMomento = prompt("Queres agregar un nuevo momento historico al libro?\n\n1.Si\n2.No")
+            //  if(nuevoMomento == 1){
+            //       const newMoment1 = new historicos (historicos.push, prompt("Ingresa el nombre del evento"), prompt ("ingresa el año de inicio"), prompt("Ingresa el año de finalizacion"), prompt("ingresa si fue internacional o no"), prompt("Deja un breve resumen"))
+            //   }
             break;
 
         case 2:
@@ -57,44 +98,27 @@ do {
             break;
 
         case 4:
-            let quiz = prompt("Si ya completaste nuestro breve libro de historia, significa que estas listo para THE FINAL QUIZ.\n\nPresiona 1 si te la aguantas, si no, presiona 2 para volver al menu.");
-            if (quiz == 1){
-                let pregunta1 = prompt("¿Quien es el heroe que con la pierna izquierda hizo feliz a 45 millones de personas?\n\n1.Mahoma\n2.Leo Messi\n3.Mandela\n4.El Dibu");
-                if (pregunta1 == 1 ){
-                    alert("Le erraste feo, no tenes corazon ni cultura");
-                } else if(pregunta1 == 2){
-                    alert("Muy bien, aunque el dibu tambien nos salvo con la zurda")
-                } else if(pregunta1 == 3){
-                    alert("Le pifiaste, volve a leer nuestro contenido")
-                } else if(pregunta1 == 4){
-                    alert("Jujuuuu aguante el dibu")
-                } else {
-                    alert("No nos estamos entendiendo, vamos con la siguiente")
+            let nuevo = historicos.push(prompt("Sugierenos un evento para luego ingresar mas datos sobre el"))
+            alert("Gracias, el evento sugerido se agrego a nuestra base de datos, pronto recibira informacion")
+
+            break;
+
+        case 5:
+
+            historicos.forEach((historicos) => alert("Tenemos informacion sobre " + historicos.nombre))
+            break;
+
+        case 6:
+            const eminencias = ["El dibu", "San Martin", "Mahoma", "Nelson Mandela"];
+            alert("Aqui en el Libro de historia tenemos informacion sobre: " + eminencias.join(", ") + "\n\n Lo que da una totalidad de " + eminencias.length + " Heroes" + "\n\nElige la opcion 3 en el menu si quieres saber mas sobre ellos!" )
+            
+            const datos = eminencias.includes(prompt("Consulta al base de datos para ver si tenemos info sobre tu heroe"))
+            {
+                if(datos === false){
+                    alert("Aun no tenemos informacion sobre ese Heroe")
                 }
-                let pregunta2 = prompt("¿Que deporte juega Andres Lionel Messi?\n\n1.Tenis.\n2.Cricket.\n3.Fulbo'.\n4.Futboll.");
-                if (pregunta2 == 1){
-                    alert("Pifiaste Pa'")
-                } else if(pregunta2 == 2){
-                    alert("Eso es golf para los nenes")
-                } else if(pregunta2 == 3){
-                    alert("Te felicito, sos digno conocedor del buen arte")
-                } else if(pregunta2 == 4){
-                    alert("Mira te la voy a dejar pasar, avanti")
-                } else {
-                    alert("Casi entendes la dinamica...Sigamos")
-                }
-                let pregunta3 = prompt("La ultima pregunta, atento!\n\n¿Estara bien todo esto que codie?\n\n1.Dios quiera.\n2.Dios me salve.\n3.Dios me ampare");
-                if (pregunta3 == 1){
-                    alert("Me diverti haciendolo al menos'")
-                } else if(pregunta3 == 2){
-                    alert("JS NO ES NADA QUE VER CON HTML Y CSS")
-                } else if(pregunta3 == 3){
-                    alert("ESTA COMPLEJO, PERO VALE LA PENA EL ESFUERZO")
-                 
-                } else {
-                    alert("Felicitaciones, llegaste hasta aca y seguramente aprendiste algo.")
-                }
-            } if (quiz == 2){}
+            }
+            break;
 
         default:
     }
